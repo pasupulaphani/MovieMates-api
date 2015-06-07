@@ -38,37 +38,17 @@ app.get('/films', function (request, response) {
       return faf.getFilmInfo(film_id);
     })
     .then(function (film) {
-      resp_films[0].title = film[0].title;
-      resp_films[0].genres = film[0].genres;
-      resp_films[0].certificate = film[0].certificate;
-      resp_films[0].duration = film[0].duration;
-      
-      response.json(resp_films);
+      var resp = {}
+      resp.title = film[0].title;
+      resp.genres = film[0].genres;
+      resp.certificate = film[0].certificate;
+      resp.duration = film[0].duration;
+      resp.venue_website = resp_films[0].venue_website;
+      resp.starttime = resp_films[0].screenings.times[0].starttime
+      resp.tickets = resp_films[0].screenings.times[0].tickets
+      response.json(resp);
     });
   
-    
-    
-  
-  // response.json(
-  //   [
-  //     {
-  //       title: "Terminator Quadrilogy",
-  //       distance: 0.21,
-  //       genres: [
-  //         "Action"
-  //       ],
-  //       certificate: "15",
-  //       duration: "458",
-  //       times: [
-  //         {
-  //           starttime: "2015-06-06 20:40:00",
-  //           endtime: "2015-06-06 22:35:00",
-  //           tickets: "http://cineworld.co.uk/booking?performance=3665518&amp;seats=STANDARD",
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // );
 });
 
 app.listen(app.get('port'), function () {
