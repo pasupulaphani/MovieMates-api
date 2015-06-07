@@ -41,7 +41,7 @@ app.get('/films', function (request, response) {
       var resp = {}
       resp.title = film[0].title;
       resp.genres = film[0].genres;
-      resp.certificate = 18;
+      resp.certificate = 15;
       resp.duration = film[0].duration;
       resp.venue_website = resp_films[0].venue_website;
       resp.starttime = resp_films[0].screenings.times[0].starttime
