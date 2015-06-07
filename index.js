@@ -26,12 +26,12 @@ app.get('/films', function (request, response) {
   utils.getPostcode(lat, lon)
     .then(faf.getFilmsByLoc)
     .then(function (films) {
-      console.log(films[0].screenings[0])
-      var film_id = films[0].screenings[0].film_id;
+      console.log(films[1].screenings[0])
+      var film_id = films[1].screenings[0].film_id;
       
       var screenings = {
-        venue_website: films[0].venue_website,
-        screenings: films[0].screenings[0]
+        venue_website: films[1].venue_website,
+        screenings: films[1].screenings[0]
       }
 
       resp_films.push(screenings)
@@ -41,7 +41,7 @@ app.get('/films', function (request, response) {
       var resp = {}
       resp.title = film[0].title;
       resp.genres = film[0].genres;
-      resp.certificate = film[0].certificate;
+      resp.certificate = 18;
       resp.duration = film[0].duration;
       resp.venue_website = resp_films[0].venue_website;
       resp.starttime = resp_films[0].screenings.times[0].starttime
