@@ -7,7 +7,10 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "bluebird": "^2.9.27",
     "express": "~4.9.x",
+    "lodash": "^3.9.3",
+    "moment": "^2.10.3",
     "request": "^2.57.0"
   },
   "engines": {
